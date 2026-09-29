@@ -1,0 +1,99 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mathclass;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author jkelley2027
+ */
+public class MathClass {
+
+    // Rounds a number to the number of decimal places the user wants
+    public static double roundAvoid(double value, int places) {
+        double factor = Math.pow(10, places);
+        return Math.round(value * factor) / factor;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        // 1. Random number from 0 to 90
+        int number = (int) (Math.random() * 91);
+
+        // Math.sin, Math.cos, and Math.tan use radians
+        double radians = Math.toRadians(number);
+
+        double sine = Math.sin(radians);
+        double cosine = Math.cos(radians);
+        double tangent = Math.tan(radians);
+
+        System.out.println("Number: " + number
+                + " Sine: " + roundAvoid(sine, 3)
+                + " Cosine: " + roundAvoid(cosine, 3)
+                + " Tangent: " + roundAvoid(tangent, 3));
+
+        // 2. Random radius from 1.0 to 20.0
+        double radius = 1.0 + Math.random() * 19.0;
+
+        double area = Math.PI * Math.pow(radius, 2);
+        double volume = (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
+
+        System.out.println();
+        System.out.println("Radius: " + roundAvoid(radius, 3));
+        System.out.println("Circle Area: " + roundAvoid(area, 3));
+        System.out.println("Sphere Volume: " + roundAvoid(volume, 3));
+
+        // 3. Random large number from 100,000,000 to 100,000,000,000
+        double largeNumber = 100000000.0
+                + Math.random() * (100000000000.0 - 100000000.0);
+        double squareRoot = Math.sqrt(largeNumber);
+        double naturalLog = Math.log(largeNumber);
+        double log10 = Math.log10(largeNumber);
+                System.out.println();
+        System.out.println("Large Number: " + roundAvoid(largeNumber, 5));
+        System.out.println("Square Root: " + roundAvoid(squareRoot, 5));
+        System.out.println("Natural Log: " + roundAvoid(naturalLog, 5));
+        System.out.println("Log 10: " + roundAvoid (log10,  5));
+        
+     
+        // 4. Calculate mass using E = mc^2
+        // Speed of light in meters per second
+        double c = 299792458.0;
+
+        // E = mc^2, so m = E / c^2
+        // This gives kilograms, so multiply by 1000 to get grams
+        double massGrams = (largeNumber / Math.pow(c, 2)) * 1000;
+
+        System.out.println();
+        System.out.print("How many decimal places for the mass? ");
+        int massPlaces = input.nextInt();
+
+        System.out.println("Mass in grams: "
+                + roundAvoid(massGrams, massPlaces));
+
+        // 5. User enters a real number and integer
+        System.out.println();
+        System.out.print("Enter a real number: ");
+        double value = input.nextDouble();
+
+        System.out.print("Enter an integer power: ");
+        int power = input.nextInt();
+
+        System.out.print("How many decimal places? ");
+        int places = input.nextInt();
+
+        double answer = Math.pow(value, power);
+
+        System.out.println("Answer: " + roundAvoid(answer, places));
+
+        input.close();
+    }
+}
