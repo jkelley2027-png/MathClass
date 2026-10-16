@@ -1,0 +1,127 @@
+
+/*
+ * Course Constructors Assignment
+ *
+ * 1. Create a Course class with a title, course code,
+ *    points total, and instructor name.
+ * 2. Include a full constructor and a title-only constructor.
+ * 3. Include getters, setters, and a toString method.
+ * 4. Create and update at least three Course objects.
+ */
+package constructorsassignent;
+
+class Course {
+
+    private String courseTitle;
+    private String courseCode;
+    private int pointsTotal;
+    private String instructorName;
+
+    // Constructor with all information
+    public Course(String courseTitle, String courseCode,
+                  int pointsTotal, String instructorName) {
+        this.courseTitle = courseTitle;
+        this.courseCode = courseCode;
+        this.pointsTotal = pointsTotal;
+        this.instructorName = instructorName;
+    }
+
+    // Constructor with course title only
+    public Course(String courseTitle) {
+        this.courseTitle = courseTitle;
+        this.courseCode = "";
+        this.pointsTotal = 0;
+        this.instructorName = "";
+    }
+
+    // Getters
+    public String getCourseTitle() {
+        return courseTitle;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public int getPointsTotal() {
+        return pointsTotal;
+    }
+
+    public String getInstructorName() {
+        return instructorName;
+    }
+
+    // Setters
+    public void setCourseTitle(String courseTitle) {
+        this.courseTitle = courseTitle;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
+
+    public void setPointsTotal(int pointsTotal) {
+        this.pointsTotal = pointsTotal;
+    }
+
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
+    }
+
+    // Returns course information
+    @Override
+    public String toString() {
+        return "Course Title: " + courseTitle
+                + "\nCourse Code: " + courseCode
+                + "\nPoints Total: " + pointsTotal
+                + "\nInstructor: " + instructorName;
+    }
+}
+
+// Driver class
+public class ConstructorsAssignent {
+
+    public static void main(String[] args) {
+
+        // Create the first course using the full constructor
+        Course course1 = new Course(
+                "Computer Science", "AP CS A", 100,
+                "Mr. Smith");
+
+        // Create the second course using the title-only constructor
+        Course course2 = new Course("English");
+
+        // Set the rest of the information
+        course2.setCourseCode("ENG 2");
+        course2.setPointsTotal(90);
+        course2.setInstructorName("Mrs. Johnson");
+
+        // Use getters to retrieve information
+        System.out.println("Course 2 Title: "
+                + course2.getCourseTitle());
+        System.out.println("Course 2 Code: "
+                + course2.getCourseCode());
+        System.out.println("Course 2 Points: "
+                + course2.getPointsTotal());
+        System.out.println("Course 2 Instructor: "
+                + course2.getInstructorName());
+
+        // Create a third course
+        Course course3 = new Course(
+                "History", "HIST 1", 85,
+                "Mr. Davis");
+
+        // Update the third course using setters
+        course3.setPointsTotal(95);
+
+        // Display all three courses
+        System.out.println("\n--- Course 1 ---");
+        System.out.println(course1);
+
+        System.out.println("\n--- Course 2 ---");
+        System.out.println(course2);
+
+        System.out.println("\n--- Course 3 ---");
+        System.out.println(course3);
+    }
+}
